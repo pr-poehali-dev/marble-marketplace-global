@@ -9,7 +9,7 @@ const marbleProducts = [
     id: 1,
     name: 'Каррарский мрамор',
     origin: 'Италия',
-    price: '12,500 ₽/м²',
+    price: 12500,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
     description: 'Классический белый мрамор с серыми прожилками'
   },
@@ -17,7 +17,7 @@ const marbleProducts = [
     id: 2,
     name: 'Черный мрамор с золотом',
     origin: 'Турция',
-    price: '18,900 ₽/м²',
+    price: 18900,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/2c80536a-09fd-41dc-8bb1-0aef84aa2bed.jpg',
     description: 'Роскошный черный мрамор с золотыми прожилками'
   },
@@ -25,7 +25,7 @@ const marbleProducts = [
     id: 3,
     name: 'Зеленый мрамор',
     origin: 'Индия',
-    price: '15,200 ₽/м²',
+    price: 15200,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/737b5877-25f3-4250-94dc-7858a0ac58d3.jpg',
     description: 'Изысканный зеленый мрамор натурального оттенка'
   },
@@ -33,7 +33,7 @@ const marbleProducts = [
     id: 4,
     name: 'Серый мрамор',
     origin: 'Испания',
-    price: '11,800 ₽/м²',
+    price: 11800,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
     description: 'Элегантный серый мрамор с деликатными узорами'
   },
@@ -41,7 +41,7 @@ const marbleProducts = [
     id: 5,
     name: 'Бежевый мрамор',
     origin: 'Португалия',
-    price: '13,400 ₽/м²',
+    price: 13400,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
     description: 'Теплый бежевый мрамор для интерьера'
   },
@@ -49,7 +49,7 @@ const marbleProducts = [
     id: 6,
     name: 'Розовый мрамор',
     origin: 'Китай',
-    price: '14,700 ₽/м²',
+    price: 14700,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/2c80536a-09fd-41dc-8bb1-0aef84aa2bed.jpg',
     description: 'Нежный розовый мрамор с уникальной текстурой'
   }
@@ -71,6 +71,32 @@ const suppliers = [
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('catalog');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 25000]);
+  const [showFilters, setShowFilters] = useState(false);
+
+  const allCountries = Array.from(new Set(marbleProducts.map(p => p.origin)));
+
+  const filteredProducts = marbleProducts.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         product.origin.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCountry = selectedCountries.length === 0 || selectedCountries.includes(product.origin);
+    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
+    return matchesSearch && matchesCountry && matchesPrice;
+  });
+
+  const toggleCountry = (country: string) => {
+    setSelectedCountries(prev => 
+      prev.includes(country) ? prev.filter(c => c !== country) : [...prev, country]
+    );
+  };
+
+  const resetFilters = () => {
+    setSelectedCountries([]);
+    setPriceRange([0, 25000]);
+    setSearchQuery('');
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -130,19 +156,89 @@ const Index = () => {
               <p className="text-muted-foreground font-light">Натуральный мрамор из лучших карьеров мира</p>
             </div>
 
-            <div className="mb-8 flex gap-4">
-              <Input
-                placeholder="Поиск по названию или стране..."
-                className="max-w-md"
-              />
-              <Button variant="outline" className="gap-2">
-                <Icon name="Filter" size={18} />
-                Фильтры
-              </Button>
+            <div className="mb-8 space-y-4">
+              <div className="flex gap-4">
+                <Input
+                  placeholder="Поиск по названию или стране..."
+                  className="max-w-md"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <Button 
+                  variant="outline" 
+                  className="gap-2"
+                  onClick={() => setShowFilters(!showFilters)}
+                >
+                  <Icon name="Filter" size={18} />
+                  Фильтры
+                </Button>
+                {(selectedCountries.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 25000) && (
+                  <Button variant="ghost" onClick={resetFilters}>
+                    Сбросить
+                  </Button>
+                )}
+              </div>
+
+              {showFilters && (
+                <Card className="border-0 shadow-sm">
+                  <CardContent className="p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h3 className="font-light mb-3">Страна происхождения</h3>
+                        <div className="space-y-2">
+                          {allCountries.map(country => (
+                            <label key={country} className="flex items-center gap-2 cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={selectedCountries.includes(country)}
+                                onChange={() => toggleCountry(country)}
+                                className="w-4 h-4"
+                              />
+                              <span className="text-sm">{country}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="font-light mb-3">Цена за м²</h3>
+                        <div className="space-y-4">
+                          <div className="flex gap-4 items-center">
+                            <Input
+                              type="number"
+                              value={priceRange[0]}
+                              onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
+                              className="w-28"
+                              placeholder="От"
+                            />
+                            <span className="text-muted-foreground">—</span>
+                            <Input
+                              type="number"
+                              value={priceRange[1]}
+                              onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                              className="w-28"
+                              placeholder="До"
+                            />
+                            <span className="text-sm text-muted-foreground">₽</span>
+                          </div>
+                          <div className="flex justify-between text-xs text-muted-foreground">
+                            <span>0 ₽</span>
+                            <span>25,000 ₽</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+
+            <div className="mb-4 text-muted-foreground text-sm font-light">
+              Найдено товаров: {filteredProducts.length}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {marbleProducts.map((product) => (
+              {filteredProducts.map((product) => (
                 <Card key={product.id} className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow">
                   <div className="aspect-square overflow-hidden">
                     <img
@@ -159,7 +255,7 @@ const Index = () => {
                     <p className="text-sm text-muted-foreground mb-3">{product.origin}</p>
                     <p className="text-sm font-light mb-4">{product.description}</p>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-light">{product.price}</span>
+                      <span className="text-lg font-light">{product.price.toLocaleString('ru-RU')} ₽/м²</span>
                       <Button size="sm" variant="outline">
                         Подробнее
                       </Button>
