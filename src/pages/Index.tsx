@@ -52,6 +52,150 @@ const marbleProducts = [
     price: 14700,
     image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/2c80536a-09fd-41dc-8bb1-0aef84aa2bed.jpg',
     description: 'Нежный розовый мрамор с уникальной текстурой'
+  },
+  {
+    id: 7,
+    name: 'Calacatta Gold',
+    origin: 'Италия',
+    price: 22500,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Премиальный белый мрамор с золотистыми прожилками'
+  },
+  {
+    id: 8,
+    name: 'Emperador Dark',
+    origin: 'Испания',
+    price: 16800,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/cfcdbfb8-db4f-4de8-9562-0f7134e5cfdb.jpg',
+    description: 'Темно-коричневый мрамор с кремовыми прожилками'
+  },
+  {
+    id: 9,
+    name: 'Statuario Venato',
+    origin: 'Италия',
+    price: 24900,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Элитный белоснежный мрамор с драматическими серыми венами'
+  },
+  {
+    id: 10,
+    name: 'Rosso Levanto',
+    origin: 'Италия',
+    price: 19200,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/c200dc38-1610-4f24-8a08-b54192dd91ab.jpg',
+    description: 'Красный мрамор с белыми прожилками из Лигурии'
+  },
+  {
+    id: 11,
+    name: 'Crema Marfil',
+    origin: 'Испания',
+    price: 13900,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Кремовый мрамор с однородной текстурой'
+  },
+  {
+    id: 12,
+    name: 'Verde Guatemala',
+    origin: 'Гватемала',
+    price: 17500,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/737b5877-25f3-4250-94dc-7858a0ac58d3.jpg',
+    description: 'Насыщенный зеленый мрамор с белыми прожилками'
+  },
+  {
+    id: 13,
+    name: 'Nero Marquina',
+    origin: 'Испания',
+    price: 15600,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/2c80536a-09fd-41dc-8bb1-0aef84aa2bed.jpg',
+    description: 'Глубокий черный мрамор с тонкими белыми венами'
+  },
+  {
+    id: 14,
+    name: 'Thassos White',
+    origin: 'Греция',
+    price: 21300,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Кристально-белый мрамор с острова Тасос'
+  },
+  {
+    id: 15,
+    name: 'Breccia Oniciata',
+    origin: 'Италия',
+    price: 23400,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/cfcdbfb8-db4f-4de8-9562-0f7134e5cfdb.jpg',
+    description: 'Уникальный мрамор с золотисто-коричневыми оттенками'
+  },
+  {
+    id: 16,
+    name: 'Azul Macaubas',
+    origin: 'Бразилия',
+    price: 20100,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/d5d32396-fd2c-46c6-9ebe-3d8dae7669c1.jpg',
+    description: 'Редкий синий мрамор с кварцитовыми включениями'
+  },
+  {
+    id: 17,
+    name: 'Travertino Romano',
+    origin: 'Италия',
+    price: 11200,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Классический римский травертин с пористой структурой'
+  },
+  {
+    id: 18,
+    name: 'Emperador Light',
+    origin: 'Турция',
+    price: 14100,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/cfcdbfb8-db4f-4de8-9562-0f7134e5cfdb.jpg',
+    description: 'Светло-коричневый мрамор с деликатными прожилками'
+  },
+  {
+    id: 19,
+    name: 'Persian White',
+    origin: 'Иран',
+    price: 12900,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Белый мрамор с мелкозернистой структурой'
+  },
+  {
+    id: 20,
+    name: 'Rainforest Green',
+    origin: 'Индия',
+    price: 16400,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/737b5877-25f3-4250-94dc-7858a0ac58d3.jpg',
+    description: 'Темно-зеленый мрамор с золотистыми и белыми прожилками'
+  },
+  {
+    id: 21,
+    name: 'Portoro Gold',
+    origin: 'Италия',
+    price: 26700,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/2c80536a-09fd-41dc-8bb1-0aef84aa2bed.jpg',
+    description: 'Черный мрамор с яркими золотыми венами из Портовенере'
+  },
+  {
+    id: 22,
+    name: 'Paonazzo',
+    origin: 'Италия',
+    price: 18700,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/c200dc38-1610-4f24-8a08-b54192dd91ab.jpg',
+    description: 'Белый мрамор с фиолетовыми и красными прожилками'
+  },
+  {
+    id: 23,
+    name: 'Arabescato Corchia',
+    origin: 'Италия',
+    price: 19800,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/b377c432-bb9d-4df6-a11a-02d97c203b78.jpg',
+    description: 'Белый мрамор с элегантными серыми арабесками'
+  },
+  {
+    id: 24,
+    name: 'Cipollino Ondulato',
+    origin: 'Греция',
+    price: 17300,
+    image: 'https://cdn.poehali.dev/projects/a1f7dc5b-35db-4d62-9e0a-8b469e32d5f2/files/737b5877-25f3-4250-94dc-7858a0ac58d3.jpg',
+    description: 'Зеленый мрамор с волнистыми белыми полосами'
   }
 ];
 
@@ -59,14 +203,22 @@ const quarries = [
   { name: 'Каррарские карьеры', location: 'Тоскана, Италия', established: '1564' },
   { name: 'Афьонкарахисар', location: 'Турция', established: '1891' },
   { name: 'Раджастхан', location: 'Индия', established: '1920' },
-  { name: 'Макаэл', location: 'Португалия', established: '1845' }
+  { name: 'Макаэл', location: 'Португалия', established: '1845' },
+  { name: 'Драма', location: 'Греция', established: '1912' },
+  { name: 'Кандога', location: 'Бразилия', established: '1955' },
+  { name: 'Йезд', location: 'Иран', established: '1890' },
+  { name: 'Сакатепекес', location: 'Гватемала', established: '1978' }
 ];
 
 const suppliers = [
   { name: 'Marble Elite', country: 'Италия', experience: '50+ лет', rating: 4.9 },
   { name: 'Stone Masters', country: 'Турция', experience: '35 лет', rating: 4.8 },
   { name: 'Global Marble Co', country: 'Индия', experience: '40 лет', rating: 4.7 },
-  { name: 'European Stone', country: 'Испания', experience: '45 лет', rating: 4.9 }
+  { name: 'European Stone', country: 'Испания', experience: '45 лет', rating: 4.9 },
+  { name: 'Hellas Marble', country: 'Греция', experience: '60+ лет', rating: 4.9 },
+  { name: 'Brazilian Stone Group', country: 'Бразилия', experience: '30 лет', rating: 4.6 },
+  { name: 'Persian Natural Stone', country: 'Иран', experience: '55 лет', rating: 4.8 },
+  { name: 'Americas Marble', country: 'Гватемала', experience: '25 лет', rating: 4.5 }
 ];
 
 const Index = () => {
